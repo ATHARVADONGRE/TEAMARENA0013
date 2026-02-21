@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Government Scheme Portal</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            color: #1a5fb4;
+            font-size: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2e3436;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #1a5fb4;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 0.8rem;
+            background: #1a5fb4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .btn-login:hover {
+            background: #1c4e8a;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .register-link a {
+            color: #1a5fb4;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .success-message {
+            background: #e8f5e9;
+            color: #26a269;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="govt-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="govt-emblem">🇮🇳</div>
+                <div>
+                    <h1 class="header-title">Government Scheme Awareness Portal</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Form -->
+    <main class="main-container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>📝 Register</h1>
+                <p>Create your account</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="Create a password" required minlength="6">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="category">Category</label>
+                    <select id="category" class="form-select" required>
+                        <option value="">Select your category</option>
+                        <option value="student">🎓 Student</option>
+                        <option value="farmer">🚜 Farmer</option>
+                        <option value="women">👩 Woman</option>
+                        <option value="housing">🏠 Housing</option>
+                        <option value="health">❤️ Health</option>
+                        <option value="employment">💼 Employment</option>
+                        <option value="other">📋 Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="age">Age</label>
+                    <input type="number" id="age" class="form-input" placeholder="Enter your age" min="1" max="150" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="income">Annual Income</label>
+                    <select id="income" class="form-select" required>
+                        <option value="">Select income range</option>
+                        <option value="Below 2.5 Lakh">Below ₹2.5 Lakh</option>
+                        <option value="Below 3 Lakh">Below ₹3 Lakh</option>
+                        <option value="Below 7.5 Lakh">Below ₹7.5 Lakh</option>
+                        <option value="Below 8 Lakh">Below ₹8 Lakh</option>
+                        <option value="Below 18 Lakh">Below ₹18 Lakh</option>
+                        <option value="Above 18 Lakh">Above ₹18 Lakh</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-login">Create Account</button>
+            </form>
+            
+            <div class="register-link">
+                <p>Already have an account? <a href="/login">Login here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const category = document.getElementById('category').value;
+            const age = document.getElementById('age').value;
+            const income = document.getElementById('income').value;
+            
+            const errorDiv = document.getElementById('errorMessage');
+            const successDiv = document.getElementById('successMessage');
+            
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, email, password, category, age, income
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    successDiv.textContent = 'Account created successfully! Redirecting to login...';
+                    successDiv.classList.add('show');
+                    errorDiv.classList.remove('show');
+                    
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 2000);
+                } else {
+                    errorDiv.textContent = data.message;
+                    errorDiv.classList.add('show');
+                    successDiv.classList.remove('show');
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Registration failed. Please try again.';
+                errorDiv.classList.add('show');
+                successDiv.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup - Government Scheme Portal</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="govt-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="govt-emblem">🇮🇳</div>
+                <div>
+                    <h1 class="header-title">Government Scheme Awareness Portal</h1>
+                    <p class="header-subtitle">India's One-Stop Solution for Government Schemes</p>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn">🏠 Home</a>
+                <a href="/schemes" class="nav-btn">📋 All Schemes</a>
+                <a href="/saved-schemes" class="nav-btn">❤️ Saved</a>
+            </div>
+            
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en" onclick="changeLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="hi" onclick="changeLanguage('hi')">हि</button>
+                <button class="lang-btn" data-lang="mr" onclick="changeLanguage('mr')">मर</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="profile-setup">
+            <h1 class="profile-title">👤 Profile Setup</h1>
+            <p class="profile-subtitle">Set up your profile to get personalized scheme recommendations</p>
+            
+            <form id="profileForm">
+                <div class="form-group">
+                    <label class="form-label" for="nameInput">Full Name</label>
+                    <input type="text" id="nameInput" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="categoryInput">Category</label>
+                    <select id="categoryInput" class="form-select" required>
+                        <option value="">Select your category</option>
+                        <option value="student">🎓 Student</option>
+                        <option value="farmer">🚜 Farmer</option>
+                        <option value="women">👩 Woman</option>
+                        <option value="housing">🏠 Housing</option>
+                        <option value="health">❤️ Health</option>
+                        <option value="employment">💼 Employment</option>
+                        <option value="other">📋 Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="ageInput">Age</label>
+                    <input type="number" id="ageInput" class="form-input" placeholder="Enter your age" min="0" max="150" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="incomeInput">Annual Income Range</label>
+                    <select id="incomeInput" class="form-select" required>
+                        <option value="">Select income range</option>
+                        <option value="Below 2.5 Lakh">Below ₹2.5 Lakh</option>
+                        <option value="Below 3 Lakh">Below ₹3 Lakh</option>
+                        <option value="Below 7.5 Lakh">Below ₹7.5 Lakh</option>
+                        <option value="Below 8 Lakh">Below ₹8 Lakh</option>
+                        <option value="Below 18 Lakh">Below ₹18 Lakh</option>
+                        <option value="Above 18 Lakh">Above ₹18 Lakh</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="genderInput">Gender</label>
+                    <select id="genderInput" class="form-select" required>
+                        <option value="All">All</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                    <a href="/" class="btn btn-outline">Skip</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-btn">
+            <span>🏠</span>
+            Home
+        </a>
+        <a href="/schemes" class="mobile-nav-btn">
+            <span>📋</span>
+            Schemes
+        </a>
+        <a href="/saved-schemes" class="mobile-nav-btn">
+            <span>❤️</span>
+            Saved
+        </a>
+    </nav>
+
+    <!-- Chatbot -->
+    <button id="chatbotToggle" class="chatbot-toggle">💬</button>
+    <div id="chatbotPanel" class="chatbot-panel">
+        <div class="chatbot-header">
+            <div class="chatbot-title">🤖 Scheme Assistant</div>
+            <button id="chatbotClose" class="chatbot-close">×</button>
+        </div>
+        <div id="chatbotMessages" class="chatbot-messages">
+            <div class="message bot">Namaste! I can help you find government schemes. What category are you interested in?</div>
+        </div>
+        <div class="quick-suggestions">
+            <button class="quick-btn">Student</button>
+            <button class="quick-btn">Farmer</button>
+            <button class="quick-btn">Women</button>
+            <button class="quick-btn">Housing</button>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Type a message...">
+            <button id="chatbotSend" class="chatbot-send">➤</button>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Schemes - Government Scheme Portal</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="govt-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="govt-emblem">🇮🇳</div>
+                <div>
+                    <h1 class="header-title">Government Scheme Awareness Portal</h1>
+                    <p class="header-subtitle">India's One-Stop Solution for Government Schemes</p>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn">🏠 Home</a>
+                <a href="/schemes" class="nav-btn">📋 All Schemes</a>
+                <a href="/profile" class="nav-btn" id="profileIndicator">👤 Profile</a>
+                <a href="/saved-schemes" class="nav-btn">❤️ Saved</a>
+            </div>
+            
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en" onclick="changeLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="hi" onclick="changeLanguage('hi')">हि</button>
+                <button class="lang-btn" data-lang="mr" onclick="changeLanguage('mr')">मर</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search schemes by name...">
+            </div>
+            <div class="filter-group">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="student">🎓 Student</option>
+                    <option value="farmer">🚜 Farmer</option>
+                    <option value="women">👩 Women</option>
+                    <option value="housing">🏠 Housing</option>
+                    <option value="health">❤️ Health</option>
+                    <option value="employment">💼 Employment</option>
+                    <option value="other">📋 Other</option>
+                </select>
+                
+                <select id="incomeFilter" class="filter-select">
+                    <option value="all">All Income Levels</option>
+                    <option value="Below 2.5 Lakh">Below ₹2.5 Lakh</option>
+                    <option value="Below 3 Lakh">Below ₹3 Lakh</option>
+                    <option value="Below 7.5 Lakh">Below ₹7.5 Lakh</option>
+                    <option value="Below 8 Lakh">Below ₹8 Lakh</option>
+                </select>
+                
+                <select id="stateFilter" class="filter-select">
+                    <option value="all">All India</option>
+                    <option value="AN">Andaman & Nicobar</option>
+                    <option value="AP">Andhra Pradesh</option>
+                    <option value="DL">Delhi</option>
+                    <option value="GJ">Gujarat</option>
+                    <option value="HR">Haryana</option>
+                    <option value="KA">Karnataka</option>
+                    <option value="MH">Maharashtra</option>
+                    <option value="MP">Madhya Pradesh</option>
+                    <option value="RJ">Rajasthan</option>
+                    <option value="TN">Tamil Nadu</option>
+                    <option value="UP">Uttar Pradesh</option>
+                    <option value="WB">West Bengal</option>
+                    <option value="TT">All India</option>
+                </select>
+                
+                <select id="sortSelect" class="filter-select">
+                    <option value="relevance">Sort by Relevance</option>
+                    <option value="deadline">Sort by Deadline</option>
+                    <option value="benefits">Sort by Benefits</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="recommended-section">
+            <h2 class="section-title">📋 All Government Schemes</h2>
+            <div id="schemesContainer" class="schemes-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-btn">
+            <span>🏠</span>
+            Home
+        </a>
+        <a href="/schemes" class="mobile-nav-btn active">
+            <span>📋</span>
+            Schemes
+        </a>
+        <a href="/profile" class="mobile-nav-btn">
+            <span>👤</span>
+            Profile
+        </a>
+        <a href="/saved-schemes" class="mobile-nav-btn">
+            <span>❤️</span>
+            Saved
+        </a>
+    </nav>
+
+    <!-- Chatbot -->
+    <button id="chatbotToggle" class="chatbot-toggle">💬</button>
+    <div id="chatbotPanel" class="chatbot-panel">
+        <div class="chatbot-header">
+            <div class="chatbot-title">🤖 Scheme Assistant</div>
+            <button id="chatbotClose" class="chatbot-close">×</button>
+        </div>
+        <div id="chatbotMessages" class="chatbot-messages">
+            <div class="message bot">Namaste! I can help you find government schemes. What category are you interested in?</div>
+        </div>
+        <div class="quick-suggestions">
+            <button class="quick-btn">Student</button>
+            <button class="quick-btn">Farmer</button>
+            <button class="quick-btn">Women</button>
+            <button class="quick-btn">Housing</button>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Type a message...">
+            <button id="chatbotSend" class="chatbot-send">➤</button>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
