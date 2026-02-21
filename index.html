@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Scheme Awareness Portal</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Offline Banner -->
+    <div id="offlineBanner" class="offline-banner">
+        ⚠️ Offline mode: Showing basic data
+    </div>
+
+    <!-- Header -->
+    <header class="govt-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="govt-emblem">🇮🇳</div>
+                <div>
+                    <h1 class="header-title">Government Scheme Awareness Portal</h1>
+                    <p class="header-subtitle">India's One-Stop Solution for Government Schemes</p>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn">🏠 Home</a>
+                <a href="/schemes" class="nav-btn">📋 All Schemes</a>
+                <a href="/profile" class="nav-btn" id="profileIndicator">👤 Profile</a>
+                <a href="/saved-schemes" class="nav-btn">❤️ Saved</a>
+                <a href="/login" class="nav-btn" id="logoutBtn" style="display: none;" onclick="logout()">🚪 Logout</a>
+            </div>
+            
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en" onclick="changeLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="hi" onclick="changeLanguage('hi')">हि</button>
+                <button class="lang-btn" data-lang="mr" onclick="changeLanguage('mr')">मर</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-title">Find Government Schemes You're Eligible For</h2>
+                <p class="hero-subtitle">AI-powered scheme discovery and application guidance for Indian citizens</p>
+                
+                <div class="impact-counters">
+                    <div class="counter-item">
+                        <span class="counter-number">100+</span>
+                        <span class="counter-label">Schemes Covered</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number">7+</span>
+                        <span class="counter-label">Categories</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number">3</span>
+                        <span class="counter-label">Languages</span>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <a href="/profile" class="btn btn-orange">Set Up Profile</a>
+                    <a href="/schemes" class="btn btn-outline" style="border-color: white; color: white;">Browse Schemes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2 class="section-title">📂 Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="student">
+                    <div class="category-icon">🎓</div>
+                    <div class="category-name">Student</div>
+                    <div class="category-count">15+ Schemes</div>
+                </div>
+                <div class="category-card" data-category="farmer">
+                    <div class="category-icon">🚜</div>
+                    <div class="category-name">Farmer</div>
+                    <div class="category-count">10+ Schemes</div>
+                </div>
+                <div class="category-card" data-category="women">
+                    <div class="category-icon">👩</div>
+                    <div class="category-name">Women</div>
+                    <div class="category-count">12+ Schemes</div>
+                </div>
+                <div class="category-card" data-category="housing">
+                    <div class="category-icon">🏠</div>
+                    <div class="category-name">Housing</div>
+                    <div class="category-count">8+ Schemes</div>
+                </div>
+                <div class="category-card" data-category="health">
+                    <div class="category-icon">❤️</div>
+                    <div class="category-name">Health</div>
+                    <div class="category-count">10+ Schemes</div>
+                </div>
+                <div class="category-card" data-category="employment">
+                    <div class="category-icon">💼</div>
+                    <div class="category-name">Employment</div>
+                    <div class="category-count">15+ Schemes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Schemes Section -->
+        <section class="recommended-section">
+            <h2 class="section-title">🆕 Newly Launched Schemes</h2>
+            <div id="newSchemes" class="schemes-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Section -->
+        <section class="recommended-section">
+            <h2 class="section-title">⭐ Recommended for You</h2>
+            <div id="recommendedSchemes" class="schemes-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deadlines Section -->
+        <section class="recommended-section">
+            <h2 class="section-title">⏰ Upcoming Deadlines</h2>
+            <div id="deadlinesList">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            © 2024 Government Scheme Awareness Portal | 
+            <a href="#" class="footer-link">Help</a> | 
+            <a href="#" class="footer-link">About</a>
+        </p>
+    </footer>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-btn active">
+            <span>🏠</span>
+            Home
+        </a>
+        <a href="/schemes" class="mobile-nav-btn">
+            <span>📋</span>
+            Schemes
+        </a>
+        <a href="/profile" class="mobile-nav-btn">
+            <span>👤</span>
+            Profile
+        </a>
+        <a href="/saved-schemes" class="mobile-nav-btn">
+            <span>❤️</span>
+            Saved
+        </a>
+    </nav>
+
+    <!-- Chatbot -->
+    <div id="chatbotContainer"></div>
+
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/chatbot.js"></script>
+</body>
+</html>
